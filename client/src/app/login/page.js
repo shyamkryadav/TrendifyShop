@@ -9,7 +9,7 @@ const SignupForm = () => {
   });
 
   const registerUser = async (values) => {
-    await fetch("http://localhost:8000/register/", {
+    await fetch("http://localhost:8000/login/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -17,7 +17,6 @@ const SignupForm = () => {
   };
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -30,18 +29,6 @@ const SignupForm = () => {
 
   return (
     <form onSubmit={formik.handleSubmit} className="your-form">
-    <div className="form-group">
-      <label htmlFor="name">Name</label>
-      <Input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-      {formik?.errors.name && <div className="error-message">{formik.errors.name}</div>}
-    </div>
-
     <div className="form-group">
       <label htmlFor="email">Email</label>
       <Input
