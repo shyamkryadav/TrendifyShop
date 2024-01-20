@@ -27,6 +27,18 @@ app.post('/login', async (req, res) => {
 app.post('/product', async (req, res) => {
     await Product.create(req.body);
 })
+app.get('/product', async (req, res) => {
+    await Product.find();
+})
+
+app.get('/products', async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 app.post('/category', async (req, res) => {
     await Category.create(req.body);
