@@ -5,19 +5,11 @@ import * as Yup from "yup";
 import { Input } from "@nextui-org/react";
 const SignupForm = () => {
   const SignupSchema = Yup.object().shape({
-<<<<<<< HEAD
     // email: Yup.string().email("Invalid email").required("Required"),
   });
 
   const registerUser = async (values) => {
     await fetch("http://localhost:8000/product/", {
-=======
-    email: Yup.string().email("Invalid email").required("Required"),
-  });
-
-  const registerUser = async (values) => {
-    await fetch("http://localhost:8000/register/", {
->>>>>>> 266bbe69f8727c3982cc686b3311fb7cf065093a
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
