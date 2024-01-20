@@ -10,6 +10,7 @@ const page = () => {
       try {
         const response = await fetch("http://localhost:8000/products");
         const data = await response.json();
+        console.log(data)
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -17,22 +18,26 @@ const page = () => {
     };
     fetchProducts();
   }, []);
-
   return (
     <div className={styles.cardCont}>
       {products.map((product) => {
-        return <div className={styles.productCard} key={product._id}>
-          <img src={product.image} alt={product.name} className={styles.productImage} />
-          <div className={styles.productDetails}>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p className={styles.price}>Price: ${product.price}</p>
-            <button className={styles.addToCartButton}>Add to Cart</button>
+        return (
+          <div className={styles.productCard} key={product._id}>
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className={styles.productImage}
+            />
+            <div className={styles.productDetails}>
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <p className={styles.price}>Price: ${product.price}</p>
+              <button className={styles.addToCartButton}>Add to Cart</button>
+            </div>
           </div>
-        </div>;
+        );
       })}
     </div>
   );
 };
-
 export default page;
