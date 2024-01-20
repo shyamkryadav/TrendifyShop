@@ -8,13 +8,13 @@ This project is an e-commerce platform developed to provide a user-friendly onli
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
+<!-- - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
-- [License](#license)
+- [License](#license) -->
 
 ## Features
 
@@ -35,23 +35,23 @@ This project is an e-commerce platform developed to provide a user-friendly onli
   - Express.js
   - MongoDB (or your preferred database)
   - Mongoose (ODM for MongoDB)
-  - Passport.js (for authentication)
+  <!-- - Passport.js (for authentication) -->
   
 - **Frontend:**
   - React
-  - Redux (or state management of your choice)
+  <!-- - Redux (or state management of your choice) -->
   - HTML, CSS, JavaScript
-  - Bootstrap (or your preferred UI library)
+  <!-- - Bootstrap (or your preferred UI library) -->
 
 - **Testing:**
-  - Jest (for unit testing)
-  - Supertest (for API testing)
+  <!-- - Jest (for unit testing) -->
+  <!-- - Supertest (for API testing) -->
 
-- **Deployment:**
+<!-- - **Deployment:**
   - Docker (optional)
-  - Heroku, AWS, or your preferred hosting platform
+  - Heroku, AWS, or your preferred hosting platform -->
 
-## Getting Started
+<!-- ## Getting Started
 
 To get a copy of the project up and running on your local machine, follow these steps:
 
@@ -61,4 +61,4 @@ To get a copy of the project up and running on your local machine, follow these 
 
    ```bash
    git clone https://github.com/your-username/ecommerce-project.git
-   cd ecommerce-project
+   cd ecommerce-project -->
