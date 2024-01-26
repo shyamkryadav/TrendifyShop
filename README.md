@@ -14,7 +14,10 @@ Phase 1
 phase -2
 -setup redux
 -get the data  form the redux
-- 
+- add the add to card functionality
+- when add to card the increase the card number in header
+- goto product details page when click on product card
+
 
 ## Overview
 
