@@ -1,5 +1,21 @@
 # TrendifyShop
 
+Phase 1
+-Crate a Project 
+-install all requirment techonology
+-setup a client and server 
+-in client 
+-header,login,register,home,footer page create
+- in server side
+- make df,moduls,routing,contoller in  serve side
+- store the register data in Db and check user is login or not 
+
+
+phase -2
+-setup redux
+-get the data  form the redux
+- 
+
 ## Overview
 
 This project is an e-commerce platform developed to provide a user-friendly online shopping experience. It includes features such as product browsing, user authentication, shopping cart functionality, and more.
@@ -17,7 +33,6 @@ This project is an e-commerce platform developed to provide a user-friendly onli
 - [License](#license) -->
 
 ## Features
-
 - User Authentication (Sign Up, Login, Logout)
 - Browse Products by Categories
 - Product Search and Filtering
@@ -27,7 +42,6 @@ This project is an e-commerce platform developed to provide a user-friendly onli
 - Admin Dashboard (if applicable)
 - Product Reviews and Ratings
 - Responsive Design for Mobile and Desktop
-
 ## Technologies Used
 
 - **Backend:**
@@ -38,7 +52,7 @@ This project is an e-commerce platform developed to provide a user-friendly onli
   <!-- - Passport.js (for authentication) -->
   
 - **Frontend:**
-  - React
+  - React,Next js
   <!-- - Redux (or state management of your choice) -->
   - HTML, CSS, JavaScript
   <!-- - Bootstrap (or your preferred UI library) -->
