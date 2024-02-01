@@ -2,7 +2,7 @@
 import { useSelector ,useDispatch} from "react-redux";
 import Header from "./header/page";
 import Footer from "./footer/page";
-import Product from "./productCard/page";
+import Product from "./products/page";
 import { decrement,increment } from "@/redux/reducerSlice/countSlice";
 
 export default function Home() {

@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./productCard.module.css";
-const page = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,11 +19,15 @@ const page = () => {
     };
     fetchProducts();
   }, []);
+
+ 
   return (
     <div className={styles.cardCont}>
       {products.map((product) => {
         return (
-          <div className={styles.productCard} key={product._id}>
+
+          <div className={styles.productCard} key={product._id} >
+             <Link href={`/products/${product._id}`}>
             <img
               src={product.imageUrl}
               alt={product.name}
@@ -34,10 +39,11 @@ const page = () => {
               <p className={styles.price}>Price: ${product.price}</p>
               <button className={styles.addToCartButton}>Add to Cart</button>
             </div>
+            </Link>
           </div>
         );
       })}
     </div>
   );
 };
-export default page;
+export default Products;
