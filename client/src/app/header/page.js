@@ -1,5 +1,6 @@
 
 import React from "react";
+import Link from "next/link";
 import "./page.css";
 const page = () => {
   return (
@@ -24,6 +25,9 @@ const page = () => {
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#account">Account</a>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" href="admin">Admin</Link>
                     </li>
                 </ul>
             </nav>
