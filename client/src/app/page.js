@@ -6,13 +6,13 @@ import Product from "./productCard/page";
 import { decrement,increment } from "@/redux/reducerSlice/countSlice";
 
 export default function Home() {
-  const {count} = useSelector(state => state.count);
-  const dispatch= useDispatch();
+  // const {count} = useSelector(state => state.count);
+  // const dispatch= useDispatch();
   return (
     <main>
-       <h1 >count is:{count}</h1>
+       {/* <h1 >count is:{count}</h1>
         <button onClick={()=>dispatch(increment())}>Increment</button>
-        <button onClick={()=>dispatch(decrement())}>Decrement</button>
+        <button onClick={()=>dispatch(decrement())}>Decrement</button> */}
       <Header />
       <Product />
       <Footer />
