@@ -9,7 +9,7 @@ const SignupForm = () => {
   });
 
   const registerUser = async (values) => {
-    await fetch("http://localhost:8000/product/", {
+    await fetch("http://localhost:8000/products/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),

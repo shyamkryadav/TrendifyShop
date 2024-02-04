@@ -15,6 +15,9 @@ const AdminLayout = ({ children }) => {
             <Link href="/admin/product">Product</Link>
           </li>
           <li>
+            <Link href="/admin/allproduct">All Product</Link>
+          </li>
+          <li>
             <Link href="/admin/category">Category</Link>
           </li>
         </ul>

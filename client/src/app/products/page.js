@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./productCard.module.css";
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [product, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -23,11 +23,10 @@ const Products = () => {
  
   return (
     <div className={styles.cardCont}>
-      {products.map((product) => {
+      {product.map((item) => {
         return (
-
-          <div className={styles.productCard} key={product._id} >
-             <Link href={`/products/${product._id}`}>
+          <div className={styles.productCard} key={item._id} >
+             <Link href={`/products/${item._id}`}>
             <img
               src={product.imageUrl}
               alt={product.name}
