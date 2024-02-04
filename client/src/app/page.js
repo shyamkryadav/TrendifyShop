@@ -14,7 +14,7 @@ export default function Home() {
         <button onClick={()=>dispatch(increment())}>Increment</button>
         <button onClick={()=>dispatch(decrement())}>Decrement</button> */}
       <Header />
-      <Product />
+      {/* <Product /> */}
       <Footer />
     </main>
   );
