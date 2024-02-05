@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { Input } from "@nextui-org/react";
 import "./page";
 
-
 const SignupForm = () => {
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),

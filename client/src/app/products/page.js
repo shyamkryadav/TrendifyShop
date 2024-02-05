@@ -11,8 +11,8 @@ const Products = () => {
       try {
         const response = await fetch("http://localhost:8000/products");
         const data = await response.json();
-        console.log(data)
-        setProducts(data);
+        setProducts(data.data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -20,24 +20,24 @@ const Products = () => {
     fetchProducts();
   }, []);
 
- 
   return (
     <div className={styles.cardCont}>
+      {/* {JSON.stringify(product)} */}
       {product.map((item) => {
         return (
-          <div className={styles.productCard} key={item._id} >
-             <Link href={`/products/${item._id}`}>
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              className={styles.productImage}
-            />
-            <div className={styles.productDetails}>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p className={styles.price}>Price: ${product.price}</p>
-              <button className={styles.addToCartButton}>Add to Cart</button>
-            </div>
+          <div className={styles.productCard} key={item._id}>
+            <Link href={`/products/${item._id}`}>
+              <img
+                src={item.imageUrl}
+                alt={item.name}
+                className={styles.productImage}
+              />
+              <div className={styles.productDetails}>
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p className={styles.price}>Price: ${item.price}</p>
+                <button className={styles.addToCartButton}>Add to Cart</button>
+              </div>
             </Link>
           </div>
         );

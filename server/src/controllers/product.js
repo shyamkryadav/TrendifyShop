@@ -17,4 +17,11 @@ const CreateProduct = async (req, res) => {
     res.json({ data });
   };
 
-module.exports = { CreateProduct,getAllProduct};
+  const getProductById = async (req, res) => {
+    const data = await Product.findById(req.params.id);
+    res.json({ data });
+  };
+
+  
+
+module.exports = { CreateProduct,getAllProduct,getProductById};

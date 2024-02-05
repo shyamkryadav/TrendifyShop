@@ -1,43 +1,41 @@
-/* styles/ProductCard.css */
+
 
 .product-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .product-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .product-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-right: 16px;
-  }
-  
-  .product-details {
-    flex: 1;
-  }
-  
-  .product-title {
-    font-size: 1.5rem;
-    margin: 8px 0;
-  }
-  
-  .product-description {
-    color: #555;
-    margin: 8px 0;
-  }
-  
-  .product-price {
-    font-weight: bold;
-  }
-  
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+}
+
+.product-description {
+  color: #555;
+  margin-top: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #e44d26; /* Orange color for price */
+  margin-top: 10px;
+}
