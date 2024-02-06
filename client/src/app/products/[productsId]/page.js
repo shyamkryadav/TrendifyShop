@@ -2,16 +2,23 @@
 import { useState, useEffect } from "react";
 import style from "./productDetails.module.css";
 
-
 const ProductsDetails = ({ params }) => {
+  if (!params) {
+    return <div>Loading...</div>;
+  }
+
+  const [product, setProducts] = useState([]);
+
   console.log(params);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:8000/products/"+params.productsId);
+        const response = await fetch(
+          "http://localhost:8000/products/" + params.productsId
+        );
         const data = await response.json();
-        // setProducts(data.data);
+        setProducts(data.data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -23,12 +30,16 @@ const ProductsDetails = ({ params }) => {
   return (
     <div>
       <div className={style.productcard}>
-        <img src="/" className={style.productimage}/>
-        <div  className={style.productdetails}>
-          <h2 className={style.producttitle}>camera</h2>
-          <p  className={style.productdescription}>This is degital</p>
-          <p className={style.productprice}>Price: $65</p>
-          {/* Add more details as needed, such as specifications, reviews, etc. */}
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          className={style.productImage}
+        />
+        <div className={style.productdetails}>
+          <h2 className={style.producttitle}>{product.name}</h2>
+          <p className={style.productdescription}>{product.description}</p>
+          <p className={style.productprice}>{product.price}</p>
+          <button className={style.addToCartButton}>Add to Cart</button>
         </div>
       </div>
     </div>
