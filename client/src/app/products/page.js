@@ -1,10 +1,17 @@
 "use client";
 import React from "react";
+import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import styles from "./productCard.module.css";
+import { addToWishList } from "@/redux/reducerSlice/productSlice";
+
 const Products = () => {
+  const dispatch = useDispatch();
   const [product, setProducts] = useState([]);
+  const { favUser } = useSelector((state) => state.contact);
+  const { wishList } = useSelector((state) => state.products);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -20,13 +27,17 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  const handleAdd = (productDetails) => {
+    dispatch(addToWishList(productDetails));
+    console.log("hi");
+  };
+
   return (
     <div className={styles.cardCont}>
-      {/* {JSON.stringify(product)} */}
       {product.map((item) => {
         return (
           <div className={styles.productCard} key={item._id}>
-            <Link href={`/products/${item._id}`}>
+          
               <img
                 src={item.imageUrl}
                 alt={item.name}
@@ -36,12 +47,20 @@ const Products = () => {
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <p className={styles.price}>Price: ${item.price}</p>
-                <button className={styles.addToCartButton}>Add to Cart</button>
+                  <button className={styles.addToCartButton} onClick={() => handleAdd(item)}>Add to Cart</button>
+                  <Link className={styles.addToCartButton} href={`/products/${item._id}`}>view</Link>
               </div>
-            </Link>
           </div>
         );
       })}
+
+      {/* <div>
+        {wishList.map((item) => {
+          return (
+              <li>{item.name}</li>
+          );
+        })}
+      </div> */}
     </div>
   );
 };
