@@ -1,9 +1,24 @@
+"use client";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { addToWishList } from "@/redux/reducerSlice/productSlice";
 import Link from "next/link";
 import "./page.css";
-const page = () => {
+const Header = () => {
+  const dispatch = useDispatch();
+  const { wishList } = useSelector((state) => state.products);
+
   return (
     <header className="ecommerce-header">
+        {/* <div>
+        {wishList.map((item) => {
+          return (
+              <li>{item.name}</li>
+          );
+        })}
+      </div> */}
       <div className="logo">
         {/* <img className="logo-image" src="your-logo.png" alt="Ecommerce Logo" /> */}
         <h1>TrendyShop</h1>
@@ -51,4 +66,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Header;

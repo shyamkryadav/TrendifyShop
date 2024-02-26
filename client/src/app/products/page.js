@@ -12,7 +12,6 @@ const Products = () => {
   const [product, setProducts] = useState([]);
   const { favUser } = useSelector((state) => state.contact);
   const { wishList } = useSelector((state) => state.products);
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
