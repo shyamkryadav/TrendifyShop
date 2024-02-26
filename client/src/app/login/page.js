@@ -4,8 +4,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "@nextui-org/react";
 import "./page";
+import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux';
+
 
 const SignupForm = () => {
+  const router = useRouter()
+  const dispatch =useDispatch()
+  
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
   });
