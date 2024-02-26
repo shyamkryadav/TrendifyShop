@@ -3,7 +3,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "@nextui-org/react";
+import { addUserDetails } from '@/redux/reducerSlice/userSlice';
 import "./page";
+import {  toast } from 'react-toastify';
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux';
 
@@ -17,11 +19,20 @@ const SignupForm = () => {
   });
 
   const registerUser = async (values) => {
-    await fetch("http://localhost:8000/login/", {
+   const res = await fetch("http://localhost:8000/login/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-    });
+    })
+    const data = await res.json()
+    if(res.status == 200) {
+      dispatch(addUserDetails(data))
+      if(data?.userDetails.role === 'rider') return router.push('rider-dashboard')
+      router.push('/')
+    } else {
+      toast(data.msg)
+  
+    }
   };
   const formik = useFormik({
     initialValues: {
