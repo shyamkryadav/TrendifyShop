@@ -3,17 +3,26 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "@nextui-org/react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
 const SignupForm = () => {
+  const router = useRouter();
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
   });
 
   const registerUser = async (values) => {
-    await fetch("http://localhost:8000/register/", {
+    const res = await fetch("http://localhost:8000/register/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
+    const data = await res.json();
+    if (res.status == 200) {
+      router.push("/login");
+    }
+    toast(data.msg);
   };
   const formik = useFormik({
     initialValues: {

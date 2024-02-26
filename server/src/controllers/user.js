@@ -25,42 +25,40 @@ const registerNewUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    try {
-      const userDetails = await User.findOne({
-        email: req.body.email,
-      });
-      if (userDetails) {
-        const match = await bcrypt.compare(
-          req.body.password,
-          userDetails.password
-        );
-  
-        if (match) {
-          const token = jwt.sign({ email: req.body.email }, "shhhhh");
-          res.json({
-            userDetails,
-            msg: "Login success",
-            token,
-          });
-        } else {
-          res.json({
-            msg: "Incorrect password",
-          });
-        }
+  try {
+    const userDetails = await User.findOne({
+      email: req.body.email,
+    });
+    if (userDetails) {
+      const match = await bcrypt.compare(
+        req.body.password,
+        userDetails.password
+      );
+
+      if (match) {
+        const token = jwt.sign({ email: req.body.email }, "shhhhh");
+        res.json({
+          userDetails,
+          msg: "Login success",
+          token,
+        });
       } else {
-        res.status(403).json({
-          msg: "Invalid phone number",
+        res.json({
+          msg: "Incorrect password",
         });
       }
-    } catch (err) {
-      console.log(err);
+    } else {
+      res.status(403).json({
+        msg: "Invalid phone number",
+      });
     }
-  };
-  
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const getAllUsers = async (req, res) => {
   const data = await User.find();
   res.json({ data });
 };
-module.exports = { registerNewUser, getAllUsers,loginUser };
-
+module.exports = { registerNewUser, getAllUsers, loginUser };

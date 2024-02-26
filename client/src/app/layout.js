@@ -3,6 +3,7 @@ import "./globals.css";
 import ReduxProvider from "@/redux/reduxProvider";
 import Header from "./header/page";
 import Footer from "./footer/page";
+import { ToastContainer, toast } from 'react-toastify';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
       <ReduxProvider>
+      <ToastContainer
+        hideProgressBar
+        theme="dark"
+        />
       {/* <Header /> */}
         {children}
       {/* <Footer /> */}
