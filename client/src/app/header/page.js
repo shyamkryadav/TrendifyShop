@@ -26,7 +26,7 @@ const Header = () => {
       <nav>
         <ul className="nav-list">
           <li className="nav-item">
-            <a className="nav-link" href="#home">
+            <a className="nav-link" href="/">
               Home
             </a>
           </li>
@@ -41,7 +41,7 @@ const Header = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#cart">
+            <a className="nav-link" href="cart">
               Cart
             </a>
           </li>
